@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <title>Estadisticas</title>
+</head>
+<body>
+    <center>
+        <h1>Data</h1>
+    </center>
+    
+    <canvas id="thecanvas" width="400px" height="400px" class="col-md-12" hidden></canvas> 
+    
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">N0</th>
+            <th scope="col">T0</th>
+            <th scope="col">Tf</th>
+            <th scope="col">TC</th>
+            <th scope="col">N</th>
+            <th scope="col">Fecha</th>
+          </tr>
+        </thead>
+        <tbody id="data">
+          
+        </tbody>
+      </table>
+
+    <script>
+        const controller= require('../js/controller.js');
+        document.addEventListener("DOMContentLoaded", () =>{
+            controller.dbGET();
+        })
+    </script>
+</body>
+</html>

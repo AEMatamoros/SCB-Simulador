@@ -62,7 +62,7 @@ exports.calculeExample = ()=>{
 
 
 
-exports.dbCRUDS = () =>{
+exports.dbPOST = () =>{
     N0 = document.getElementById("bacInitNumber").value
     tazaCrecimiento = document.getElementById("tc").value/100 //%
     t0 = document.getElementById("timeI").value
@@ -85,6 +85,39 @@ exports.dbCRUDS = () =>{
     
 }
 
+exports.dbGET = ()=>{
+    ipcRenderer.send('getData');
+}
+
 ipcRenderer.on('postDataOk',(e,args)=>{
     console.log('Calculo Correcto');
+})
+
+ipcRenderer.on('getDataOk',(e,args)=>{
+    elements=JSON.parse(args);
+    //Oder By date
+    function comp(a, b) {
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
+    }
+    
+    elements.sort(comp);
+
+
+    document.getElementById('data').innerHTML =''
+    let count=0
+    elements.forEach(element => {
+        count++
+        console.log(element)
+    document.getElementById('data').innerHTML +=`
+        <tr>
+            <th scope="row">${count}</th>
+            <td>${element.N0}</td>
+            <td>${element.t0}</td>
+            <td>${element.tf}</td>
+            <td>${element.tc}</td>
+            <td>${element.N}</td>
+            <td>${element.date.substring(0 , 10)}</td>
+        </tr>`
+    });
+    
 })
