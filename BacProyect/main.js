@@ -48,25 +48,5 @@ ipcMain.on('getData',async (event,args)=>{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 app.on("ready",MainWindow);
 app.allowRendererProcessReuse=true
