@@ -117,7 +117,17 @@ ipcRenderer.on('getDataOk',(e,args)=>{
             <td>${element.tc}</td>
             <td>${element.N}</td>
             <td>${element.date.substring(0 , 10)}</td>
+            <td><button class="btn btn-danger" id="${element._id}" onclick="remove(this);">Eliminar</button></td>
         </tr>`
     });
     
 })
+
+exports.dbDelete=(id)=>{
+    ipcRenderer.send('deleteData',id);
+}
+
+ipcRenderer.on('deleteOk',(e,args)=>{
+    this.dbGET();
+})
+//deleteOk

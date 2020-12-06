@@ -23,7 +23,7 @@ function MainWindow(){
     })
 
     mainWindow.removeMenu();
-    //mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools();
     mainWindow.loadURL(url.format({
         pathname:path.join(__dirname,"templates/index.html"),
         protocol:false,
@@ -46,6 +46,10 @@ ipcMain.on('getData',async (event,args)=>{
     event.reply('getDataOk',JSON.stringify(result));  
 })
 
+ipcMain.on('deleteData',async (event,args)=>{
+    result= await processData.deleteOne({'_id':args})
+    event.reply('deleteOk',JSON.stringify(result));
+})
 
 
 app.on("ready",MainWindow);

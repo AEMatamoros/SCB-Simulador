@@ -31,7 +31,7 @@
                     <input type="text" id="tc" class="form-control">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary form-control mb-1" onclick="graficar()" id="btn-calc">Calcular</button>
+                    <button class="btn btn-primary form-control mb-1"  id="btn-calc">Calcular</button>
                     <button class="btn btn-primary form-control mb-1" id="btn-data">Datos</button>
                     <button class="btn btn-primary form-control mb-1" onclick="simon()" id="btn-grafica">Ver Grafica</button>
 
@@ -60,10 +60,13 @@
         const controller= require('../js/controller.js');
         const graphController = require('../js/windowController.js');
         const graficaWindow = require('../js/graficaWindow.js');
+        const validations = require('../js/validations.js');
         //const graficaController = require('../js/graficaController.js');
         
         document.getElementById("btn-calc").addEventListener("click",()=>{
-            controller.calculeExample();
+            if(validations.validate()){
+                controller.calculeExample();
+            }
         });
 
         document.getElementById("btn-calc").addEventListener("click",()=>{

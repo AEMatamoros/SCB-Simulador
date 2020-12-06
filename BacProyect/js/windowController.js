@@ -12,8 +12,8 @@ newDataWindowBtn.addEventListener('click', (event)=>{
         }
     });
 
-    dataWindow.webContents.openDevTools();
-    //dataWindow.removeMenu();
+    //dataWindow.webContents.openDevTools();
+    dataWindow.removeMenu();
     dataWindow.loadURL(url.format({
         pathname:path.join("../templates/data.html"),
         protocol:false,

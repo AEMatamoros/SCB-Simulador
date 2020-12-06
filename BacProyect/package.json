@@ -5,7 +5,8 @@
     "dependencies": {
         "canvasjs": "^1.8.3",
         "electron": "^11.0.2",
-        "mongoose": "^5.10.15"
+        "mongoose": "^5.10.15",
+        "moongoose": "0.0.5"
     },
     "scripts": {
         "start": "electron ."

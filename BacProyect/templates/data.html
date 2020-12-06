@@ -7,14 +7,15 @@
     <title>Estadisticas</title>
 </head>
 <body>
+  <div class="container">
     <center>
-        <h1>Data</h1>
+        <h1>Registro de Muestras</h1>
     </center>
     
     <canvas id="thecanvas" width="400px" height="400px" class="col-md-12" hidden></canvas> 
     
-    <table class="table table-striped">
-        <thead>
+    <table class="table table-striped border">
+        <thead class="bg-success text-white">
           <tr>
             <th scope="col">#</th>
             <th scope="col">N0</th>
@@ -23,18 +24,25 @@
             <th scope="col">TC</th>
             <th scope="col">N</th>
             <th scope="col">Fecha</th>
+            <th scope="col">Remover</th>
           </tr>
         </thead>
         <tbody id="data">
           
         </tbody>
       </table>
+    </div>
 
     <script>
         const controller= require('../js/controller.js');
         document.addEventListener("DOMContentLoaded", () =>{
             controller.dbGET();
         })
+
+        function remove(element){
+          controller.dbDelete(element.id);
+        }
     </script>
+
 </body>
 </html>
