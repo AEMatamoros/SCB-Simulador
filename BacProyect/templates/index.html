@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Boostrap-->
     <link rel="stylesheet" href="../css/bootstrap.css">
-    <title>Simulacion TIB</title>
+    <title>Simulación TIB</title>
 </head>
 
 <body>
@@ -14,7 +14,7 @@
         <div class="row">
             <dic class="col-md-5 col-lg-5">
                 <div class="form-group">
-                    <center><h2><Strong>Simulacion TIB</Strong></h2></center>
+                    <center><h2><Strong>Simulación TIB</Strong></h2></center>
                     <label for="bacInitNumber">Cantidad Inicial de Bacterias</label>
                     <input type="text" id="bacInitNumber" class="form-control">
                 </div>
@@ -27,13 +27,13 @@
                     <input type="text" id="timeF" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="time">Taza de Crecimiento(%)</label>
+                    <label for="time">Tasa de Crecimiento(%)</label>
                     <input type="text" id="tc" class="form-control">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary form-control mb-1"  id="btn-calc">Calcular</button>
                     <button class="btn btn-primary form-control mb-1" id="btn-data">Datos</button>
-                    <button class="btn btn-primary form-control mb-1" onclick="simon()" id="btn-grafica">Ver Grafica</button>
+                    <button class="btn btn-primary form-control mb-1" onclick="simon()" id="btn-grafica">Ver Gráfica</button>
 
                 </div>
 
@@ -64,9 +64,9 @@
         //const graficaController = require('../js/graficaController.js');
         
         document.getElementById("btn-calc").addEventListener("click",()=>{
-            if(validations.validate()){
+            /* if(validations.validate()){ */
                 controller.calculeExample();
-            }
+            /* } */
         });
 
         document.getElementById("btn-calc").addEventListener("click",()=>{
