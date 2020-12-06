@@ -32,8 +32,9 @@
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary form-control mb-1"  id="btn-calc">Calcular</button>
-                    <button class="btn btn-primary form-control mb-1" id="btn-data">Datos</button>
-                    <button class="btn btn-primary form-control mb-1" onclick="simon()" id="btn-grafica">Ver Gráfica</button>
+                    <button class="btn btn-primary form-control mb-1"  id="btn-info">Informacion</button>
+                    <button class="btn btn-primary form-control mb-1" id="btn-data">Registro de datos</button>
+                    <button class="btn btn-primary form-control mb-1" onclick="obtenerDatos()" id="btn-grafica">Ver Gráfica</button>
 
                 </div>
 
@@ -60,6 +61,7 @@
         const controller= require('../js/controller.js');
         const graphController = require('../js/windowController.js');
         const graficaWindow = require('../js/graficaWindow.js');
+        const informacionWindow = require('../js/informacionWindow.js');
         const validations = require('../js/validations.js');
         //const graficaController = require('../js/graficaController.js');
         

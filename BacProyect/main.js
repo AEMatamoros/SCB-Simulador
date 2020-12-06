@@ -23,7 +23,7 @@ function MainWindow(){
     })
 
     mainWindow.removeMenu();
-    mainWindow.webContents.openDevTools();
+    //mainWindow.webContents.openDevTools();
     mainWindow.loadURL(url.format({
         pathname:path.join(__dirname,"templates/index.html"),
         protocol:false,

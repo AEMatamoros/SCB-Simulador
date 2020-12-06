@@ -13,7 +13,9 @@ const graficar = () => {
     var hora = [];
     var data = [];
 
+    hora.push("Hora 0");
     data.push(N0);
+
     for (let i=1; i <=dif; i++) {
         hora.push("Hora "+i);
         N = Math.round(N0*Math.pow(Math.E,tazaCrecimiento*(i)));

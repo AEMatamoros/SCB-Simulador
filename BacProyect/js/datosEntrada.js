@@ -1,5 +1,5 @@
 
-function simon() {
+function obtenerDatos() {
     //document.getElementById("timeF").style.backgroundColor="red";
     
     N0 = document.getElementById("bacInitNumber").value;
