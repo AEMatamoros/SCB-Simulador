@@ -14,6 +14,8 @@ let mainWindow;
 function MainWindow(){
     
     mainWindow = new BrowserWindow({
+        height: 750,
+        width:1000,
         webPreferences:{
             nodeIntegration:true,
             enableRemoteModule:true
@@ -22,7 +24,7 @@ function MainWindow(){
         
     })
 
-    mainWindow.removeMenu();
+    //mainWindow.removeMenu();
     //mainWindow.webContents.openDevTools();
     mainWindow.loadURL(url.format({
         pathname:path.join(__dirname,"templates/index.html"),

@@ -14,6 +14,7 @@ var N0 = 0
 var tazaCrecimiento = 0
 var t0 = 0
 var tf = 0
+var vel = 0;
 
 function initCanvas(){
 
@@ -33,31 +34,94 @@ function initCanvas(){
 initCanvas();
 //Calcular crecimiento de la muestra
 exports.calculeExample = ()=>{
+
+    var rangoH = 0;
+    var bacTiempo = [];
+    var bacTiempoCustom = [];
+    var conteoBac = 0;
+    var equilibrio = 1;
+    var divHora = 4;
+    var contadorSi = 1;
+    var val = 0;
+    var anterior = 0;
+
     initCanvas();
         //N=N0*(e(u(t-t0)))
     N0 = document.getElementById("bacInitNumber").value
     tazaCrecimiento = document.getElementById("tc").value/100 //%
     t0 = document.getElementById("timeI").value
     tf = document.getElementById("timeF").value //Horas
+    vel = Number(document.getElementById("velocidad").value);
+    rangoH = tf-t0;
 
     N = Math.round(N0*Math.pow(Math.E,tazaCrecimiento*(tf-t0)));
+
+    for (let ii = 0; ii<rangoH; ii++) {
+        N = Math.round(N0*Math.pow(Math.E,tazaCrecimiento*(ii)));
+        bacTiempo.push(N);
+        /* for (let k = 0; k<3; k++) {
+            //bacTiempoCustom.push(Math.round(N/3));
+            if(bacTiempo.length===1) {
+                //val = (list[f]/n)*k;
+                val = (N/divHora)*equilibrio
+                } else {
+                //v=f-1
+                anterior = bacTiempo.length-1;
+                //val = list[v] + ((list[f]-list[v])/n)*k;
+                val = bacTiempo[anterior] + ((N-bacTiempo[anterior])/divHora)*equilibrio
+             }
+
+            //val = (N/divHora)*equilibrio
+            equilibrio = equilibrio*2;
+            bacTiempoCustom.push(val);
+            if (contadorSi==3) {
+        
+                contadorSi=0;
+                equilibrio=1;
+            }
+             contadorSi=contadorSi + 1;
+
+        } */
+    }
+    //document.getElementById('simon').innerHTML += bacTiempo;
 
     if(N%2==0){
     }else{N-=1}
     
-    document.getElementById("N").innerHTML=N
+    //document.getElementById("N").innerHTML=N
 
     // Crear Puntos de forma Aleatoria
     ctx.fillStyle = '#69A644';//Color de Puntos
 
-    while (N) {
+    for (let x = 0; x < bacTiempo.length; x++) {
+    setTimeout(function(y) {   
+        N = bacTiempo[y] - conteoBac;
+        conteoBac += N;
+        //document.getElementById('simon').innerHTML += " ciclo: " +y+" N: "+ N + "- conteo: "+ conteoBac;
+        document.getElementById("N").innerHTML=conteoBac;
+        //document.getElementById('simon').innerHTML += bacTiempoCustom;
+        /* for (let z = 0; z < 3; z++) { */
+            while (N) {
+                var pt_angle = Math.random() * 2 * Math.PI;
+                var pt_radius_sq = Math.random() * radius * radius;
+                var pt_x = Math.sqrt(pt_radius_sq) * Math.cos(pt_angle);
+                var pt_y = Math.sqrt(pt_radius_sq) * Math.sin(pt_angle);
+                ctx.fillRect(pt_x + canvas.width / 2, pt_y + canvas.width / 2, 2, 2);
+                N--;
+            }
+       /*  } */
+        
+    }, x * vel, x); 
+    }
+
+    /* while (N) {
         var pt_angle = Math.random() * 2 * Math.PI;
         var pt_radius_sq = Math.random() * radius * radius;
         var pt_x = Math.sqrt(pt_radius_sq) * Math.cos(pt_angle);
         var pt_y = Math.sqrt(pt_radius_sq) * Math.sin(pt_angle);
         ctx.fillRect(pt_x + canvas.width / 2, pt_y + canvas.width / 2, 2, 2);
         N--;
-    }
+    } */
 }
 
 

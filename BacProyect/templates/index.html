@@ -11,7 +11,7 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" style="width: 950px;">
             <dic class="col-md-5 col-lg-5">
                 <div class="form-group">
                     <center><h2><Strong>Simulación TIB</Strong></h2></center>
@@ -31,8 +31,16 @@
                     <input type="text" id="tc" class="form-control">
                 </div>
                 <div class="form-group">
+                    <label for="velocidad">Velocidad de simulación</label>
+                    <select class="form-control" name="velocidad" id="velocidad">
+                        <option value="1200">1x</option>
+                        <option value="800">2x</option>
+                        <option value="400">3x</option>
+                      </select>
+                </div>
+                <div class="form-group">
                     <button class="btn btn-primary form-control mb-1"  id="btn-calc">Calcular</button>
-                    <button class="btn btn-primary form-control mb-1"  id="btn-info">Informacion</button>
+                    <button class="btn btn-primary form-control mb-1"  id="btn-info">Información</button>
                     <button class="btn btn-primary form-control mb-1" id="btn-data">Registro de datos</button>
                     <button class="btn btn-primary form-control mb-1" onclick="obtenerDatos()" id="btn-grafica">Ver Gráfica</button>
 
@@ -41,9 +49,10 @@
             </dic>
             <dic class="col-md-7 col-lg-7 border p-3 mt-2 row ml-1">
                     <canvas id="thecanvas" width="400px" height="400px" class="col-md-12"></canvas><br>
-                    <label for="" class="col-md-6">#Bacterias Final</label>
+                    <label for="" class="col-md-6">Número de Bacterias</label>
                     <div id="N" class="col-md-6"></div>
                     <span class="col-md-12">Relación</span>
+                    <div id="simon"></div>
                 
             </dic>
 
@@ -67,7 +76,8 @@
         
         document.getElementById("btn-calc").addEventListener("click",()=>{
             /* if(validations.validate()){ */
-                controller.calculeExample();
+            controller.calculeExample();
+            //var intervalo = setInterval(controller.calculeExample(),2000);
             /* } */
         });
 
