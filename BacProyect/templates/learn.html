@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <title>Estadísticas</title>
+</head>
+<body>
+  <div class="container-fluid">
+      <center>
+          <label for="">Selecciona un tipo de bacteria</label>
+      </center>
+      <select name="" id="select" class="form-control">
+          <option value="div-estafilococo">Estafilococos</option>
+          <option value="div-estreptococo">Estreptococos</option>
+          <option value="div-vibrio">Vibrio cholerae</option>
+          <option value="div-meningitis">Neisseria meningitidis</option>
+          <option value="div-coli">Escherichia coli</option>
+      </select>
+      <div class="row mt-3 mb-3" hidden id="div-estafilococo">
+          <div class="col-md-4 pt-5">
+              <img src="../img/estafilococo.jpg" alt="" class="img-thumbnail border ">
+          </div>
+          <div class="col-md-8">
+              <h2>Estafilococos</h2>
+              <p>Estas son de las bacterias más comunes 
+                  que pueden encontrarse en la piel y en la nariz, incluso de personas sanas. La mayoría de veces no causan problemas, pero cuando atacan las afecciones pueden ir desde leves problemas dermatológicos hasta endocarditis. Esta última es una infección de la capa interna del corazón que podría tener un desenlace fatal.</p>
+          </div>
+          <div class="col-md-4">
+            De estos microorganismos hay más de 30 especies diferentes, pero la mayoría de las infecciones son provocadas por una denominada Staphylococcus aureus. 
+          </div>
+          <div class="col-md-8">
+            <img src="../img/estafilococo2.jpg" alt="" class="img-thumbnail border">
+          </div>
+      </div>
+
+      <div class="row mt-3 mb-3" hidden id="div-estreptococo">
+        <div class="col-md-4 pt-5">
+            <img src="../img/estreptococo.jpg" alt="" class="img-thumbnail border ">
+        </div>
+        <div class="col-md-8">
+            <h2>Estreptococos</h2>
+            <p>son los microorganismos responsables de muchas 
+                enfermedades, entre ellas faringitis, neumonía, infecciones de la piel
+                 y de las heridas, septicemias y endocarditis. Hay dos tipos de esta bacteria
+                 , grupo A y grupo B.</p>
+        </div>
+        <div class="col-md-4">
+            Los del grupo A causan:Faringitis estreptocócica,Impétigo,Erisipela,Celulitis.El estreptococo del grupo B puede causar infecciones de la sangre, neumonía y meningitis en los recién nacidos. En los adultos puede generar infecciones en el tracto urinario, la sangre, la piel y neumonía.
+        </div>
+        <div class="col-md-8">
+          <img src="../img/estreptococo2.jpg" alt="" class="img-thumbnail border">
+        </div>
+    </div>
+
+    <div class="row mt-3 mb-3" hidden id="div-vibrio">
+        <div class="col-md-4 pt-5">
+            <img src="../img/vibrio.jpg" alt="" class="img-thumbnail border ">
+        </div>
+        <div class="col-md-8">
+            <h2>Vibrio cholerae</h2>
+            <p>De acuerdo con la Organización Mundial de la Salud (OMS) es la bacteria que 
+                produce el cólera, una infección intestinal aguda, causada por la ingestión de 
+                alimentos o agua contaminados.</p>
+        </div>
+        <div class="col-md-4">
+            La OMS destaca que la mayoría de infectados no presenta síntomas, aunque esta se encuentre presente 
+            en sus heces durante el día uno hasta los 10 siguientes a la infección.
+        </div>
+        <div class="col-md-8">
+          <img src="../img/vibrio2.jpg" alt="" class="img-thumbnail border">
+        </div>
+    </div>
+
+    <div class="row mt-3 mb-3" hidden id="div-meningitis">
+        <div class="col-md-4 pt-5">
+            <img src="../img/meningitis.jpg" alt="" class="img-thumbnail border ">
+        </div>
+        <div class="col-md-8">
+            <h2>Neisseria meningitidis</h2>
+            <p>es una bacteria causante de meningitis meningocócica, 
+                una infección grave de las membranas que rodean el cerebro y la médula espinal, 
+                que puede causar importantes daños cerebrales y ser mortal en la mitad de los 
+                casos.</p>
+        </div>
+        <div class="col-md-4">
+            Los científicos han identificado 12 serogrupos de Neisseria meningitidis, cinco de los cuales tienen la capacidad de causar epidemias.
+        </div>
+        <div class="col-md-8">
+          <img src="../img/meningitis2.jpg" alt="" class="img-thumbnail border">
+        </div>
+    </div>
+
+    <div class="row mt-3 mb-3" hidden id="div-coli">
+        <div class="col-md-4 pt-5">
+            <img src="../img/coli.jpg" alt="" class="img-thumbnail border ">
+        </div>
+        <div class="col-md-8">
+            <h2>Escherichia coli</h2>
+            <p>Son habituales en los intestinos de las personas y de los animales sanos. 
+                Y si bien la mayoría de las cepas son inofensivas, algunas pueden causar 
+                diarrea breve en términos relativos.
+
+            </p>
+        </div>
+        <div class="col-md-4">
+            No obstante hay cepas que son particularmente peligrosas, cuyos síntomas son cólicos abdominales intensos, diarrea con sangre y vómitos.
+            Estas se transmiten por consumir agua o alimentos contaminados, entre ellos productos cárnicos poco cocidos y leche cruda.
+        </div>
+        <div class="col-md-8">
+          <img src="../img/coli2.jpg" alt="" class="img-thumbnail border">
+        </div>
+    </div>
+
+
+
+  </div>
+
+    <script>
+        document.getElementById('select').addEventListener('change',()=>{
+            hideAll();
+            document.getElementById(document.getElementById('select').value).hidden=false
+        })
+
+        function hideAll(){
+          document.getElementById("div-estafilococo").hidden=true
+          document.getElementById("div-estreptococo").hidden=true
+          document.getElementById("div-vibrio").hidden=true
+          document.getElementById("div-meningitis").hidden=true
+          document.getElementById("div-coli").hidden=true
+        }
+
+    </script>
+
+</body>
+</html>
